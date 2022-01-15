@@ -1,0 +1,25 @@
+config:
+  target: "http://localhost:8080"
+  phases:
+    - duration: 5
+      arrivalRate: 5
+      name: Warm up
+    - duration: 20
+      arrivalRate: 5
+      rampTo: 50
+      name: Ramp up load
+    - duration: 40
+      arrivalRate: 50
+      rampTo: 150
+      name: Ramp up load
+    - duration: 600
+      arrivalRate: 150
+      rampTo: 1000
+      name: Mar hi dalo 
+
+scenarios:
+  - name: "Hit and run: https://www.youtube.com/watch?v=b4h1q3cCl2w"
+    flow:
+      - get:
+          url: "/"
+
